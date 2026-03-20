@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulting Industry Evolution — Daily Briefs</title>
+<style>
+  :root { --primary: #1a365d; --secondary: #2b6cb0; --accent: #ed8936; --bg: #f7fafc; --card: #ffffff; --text: #2d3748; --muted: #718096; --border: #e2e8f0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+  header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 50px 0 40px; text-align: center; }
+  h1 { font-size: 2rem; margin-bottom: 8px; }
+  .subtitle { opacity: 0.9; font-size: 1rem; }
+  .brief-list { list-style: none; margin-top: 30px; }
+  .brief-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; display: flex; align-items: center; gap: 16px; transition: box-shadow 0.2s; }
+  .brief-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .brief-date { font-size: 1.1rem; font-weight: 700; color: var(--secondary); min-width: 120px; }
+  .brief-summary { font-size: 0.9rem; color: var(--muted); flex: 1; }
+  .brief-link { background: var(--accent); color: white; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+  .brief-link:hover { opacity: 0.9; }
+  .loading { text-align: center; padding: 40px; color: var(--muted); }
+  footer { text-align: center; padding: 30px; color: var(--muted); font-size: 0.8rem; margin-top: 40px; }
+  @media (max-width: 600px) { .brief-item { flex-direction: column; align-items: flex-start; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>Consulting Industry Evolution</h1>
+    <div class="subtitle">Daily Intelligence Briefs — Knowit</div>
+  </div>
+</header>
+<div class="container">
+  <ul class="brief-list" id="briefList">
+    <li class="loading">Loading briefs...</li>
+  </ul>
+</div>
+<footer>
+  Consulting Industry Evolution — Daily Brief Series | Prepared for Knowit
+</footer>
+<script>
+fetch('briefs/manifest.json')
+  .then(r => r.json())
+  .then(briefs => {
+    const list = document.getElementById('briefList');
+    list.innerHTML = '';
+    briefs.sort((a, b) => b.date.localeCompare(a.date)).forEach(brief => {
+      const li = document.createElement('li');
+      li.className = 'brief-item';
+      li.innerHTML = '<span class="brief-date">' + brief.date + '</span><span class="brief-summary">' + brief.summary + '</span><a class="brief-link" href="briefs/' + brief.file + '">View Brief</a>';
+      list.appendChild(li);
+    });
+    if (briefs.length === 0) {
+      list.innerHTML = '<li class="loading">No briefs published yet.</li>';
+    }
+  })
+  .catch(() => {
+    document.getElementById('briefList').innerHTML = '<li class="loading">Unable to load briefs manifest.</li>';
+  });
+</script>
+</body>
+</html>
