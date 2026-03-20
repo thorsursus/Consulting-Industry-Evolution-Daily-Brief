@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulting Industry Evolution — Daily Brief | 2026-03-20</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --primary: #1a365d;
+    --secondary: #2b6cb0;
+    --accent: #ed8936;
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --text: #2d3748;
+    --muted: #718096;
+    --border: #e2e8f0;
+    --green: #38a169;
+    --red: #e53e3e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+  header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 40px 0; margin-bottom: 30px; }
+  header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  h1 { font-size: 1.8rem; font-weight: 700; }
+  .subtitle { opacity: 0.9; font-size: 0.95rem; }
+  .date-badge { background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin-bottom: 30px; }
+  .card { background: var(--card); border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid var(--border); }
+  .card h2 { font-size: 1.1rem; color: var(--primary); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .insight { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .insight:last-child { border-bottom: none; }
+  .insight-num { display: inline-block; width: 28px; height: 28px; background: var(--accent); color: white; border-radius: 50%; text-align: center; line-height: 28px; font-size: 0.8rem; font-weight: 700; margin-right: 8px; }
+  .insight-title { font-weight: 600; color: var(--primary); }
+  .insight p { margin-top: 4px; font-size: 0.9rem; color: var(--muted); }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+  .stat { text-align: center; padding: 16px 8px; background: var(--bg); border-radius: 8px; }
+  .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--secondary); }
+  .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+  .stat-change { font-size: 0.75rem; margin-top: 2px; }
+  .stat-change.up { color: var(--green); }
+  .stat-change.down { color: var(--red); }
+  .chart-container { position: relative; height: 280px; margin: 16px 0; }
+  .tag { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin: 2px 4px 2px 0; }
+  .tag-growth { background: #c6f6d5; color: #276749; }
+  .tag-risk { background: #fed7d7; color: #9b2c2c; }
+  .tag-opportunity { background: #bee3f8; color: #2a4365; }
+  .tag-trend { background: #fefcbf; color: #744210; }
+  .source-list { list-style: none; }
+  .source-list li { padding: 6px 0; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
+  .source-list li:last-child { border-bottom: none; }
+  .source-list a { color: var(--secondary); text-decoration: none; }
+  .source-list a:hover { text-decoration: underline; }
+  .positioning-box { background: linear-gradient(135deg, #ebf8ff, #f0fff4); border: 1px solid #bee3f8; border-radius: 8px; padding: 16px; margin: 10px 0; }
+  .positioning-box h3 { color: var(--primary); font-size: 0.95rem; margin-bottom: 8px; }
+  .positioning-box ul { list-style: disc; margin-left: 20px; font-size: 0.9rem; }
+  .positioning-box li { margin-bottom: 6px; }
+  .full-width { grid-column: 1 / -1; }
+  .quadrant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border-radius: 8px; overflow: hidden; }
+  .quadrant { padding: 16px; background: var(--card); }
+  .quadrant h4 { font-size: 0.85rem; color: var(--secondary); margin-bottom: 8px; }
+  .quadrant ul { list-style: none; font-size: 0.82rem; }
+  .quadrant li { padding: 3px 0; }
+  .quadrant li::before { content: "→ "; color: var(--accent); font-weight: 700; }
+  footer { text-align: center; padding: 20px; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 30px; }
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } header .container { flex-direction: column; text-align: center; } .quadrant-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header><div class="container"><div><h1>Consulting Industry Evolution</h1><div class="subtitle">Daily Intelligence Brief for Knowit</div></div><div class="date-badge">📅 March 20, 2026</div></div></header>
+<div class="container">
+<div class="card full-width" style="margin-bottom: 20px;"><h2>Market Snapshot</h2><div class="stat-grid"><div class="stat"><div class="stat-value">$1.11T</div><div class="stat-label">Global Consulting Market</div><div class="stat-change up">▲ 4.5% CAGR</div></div><div class="stat"><div class="stat-value">$411.7B</div><div class="stat-label">US Market</div><div class="stat-change up">▲ 0.9% YoY</div></div><div class="stat"><div class="stat-value">$400B+</div><div class="stat-label">Tech Consulting Global</div><div class="stat-change up">▲ Milestone</div></div><div class="stat"><div class="stat-value">€2.8B</div><div class="stat-label">Nordic Market</div><div class="stat-change down">▼ 3.1% (was 7.5%)</div></div><div class="stat"><div class="stat-value">62%</div><div class="stat-label">Firms Using AI</div><div class="stat-change up">▲ Growing</div></div><div class="stat"><div class="stat-value">$3.70</div><div class="stat-label">GenAI ROI per $1</div><div class="stat-change up">Top: $10.30</div></div></div></div>
+<div class="grid">
+<div class="card full-width"><h2>Top Insights</h2><div class="insight"><span class="insight-num">1</span><span class="insight-title">AI Won't Kill Consulting — But It's Rewriting the Rules</span><span class="tag tag-trend">AI</span><span class="tag tag-opportunity">Opportunity</span><p>Capgemini's strategy chief told Fortune (Mar 17) that boards still prefer human advisors for strategic decisions. AI-using consultants complete tasks 25% faster at 40%+ higher quality. Early GenAI adopters see $3.70–$10.30 return per $1 invested.</p></div><div class="insight"><span class="insight-num">2</span><span class="insight-title">Nordic Consultancies Downsizing Despite Market Growth</span><span class="tag tag-risk">Risk</span><span class="tag tag-trend">Nordics</span><p>Large listed Nordic consultancies cutting headcount to maintain profitability. IT consultants face toughest conditions with surplus of system developer roles.</p></div><div class="insight"><span class="insight-num">3</span><span class="insight-title">Enterprise Architecture Becomes the AI Governance Function</span><span class="tag tag-trend">EA</span><span class="tag tag-opportunity">Opportunity</span><p>EA in 2026 is defined by AI-first architecture, agentic AI governance, and decision services. Integration has moved from backstage to boardroom-level strategic priority.</p></div><div class="insight"><span class="insight-num">4</span><span class="insight-title">Leadership Needs AI Fluency</span><span class="tag tag-trend">Leadership</span><p>Human+AI leadership models emerging. Leaders must question AI outputs, identify bias, and blend machine efficiency with human judgment.</p></div><div class="insight"><span class="insight-num">5</span><span class="insight-title">Specialization and Outcome-Based Models Accelerate</span><span class="tag tag-trend">Business Model</span><p>Clients demand specialists over generalists. Fractional C-suite engagements growing. Outcome-based pricing replacing billable hours.</p></div></div>
+<div class="card"><h2>AI Adoption in Consulting</h2><div class="chart-container"><canvas id="aiAdoptionChart"></canvas></div></div>
+<div class="card"><h2>Consulting Market Growth Trajectories</h2><div class="chart-container"><canvas id="marketGrowthChart"></canvas></div></div>
+<div class="card"><h2>Nordic Consulting — Opportunity Heatmap</h2><div class="chart-container"><canvas id="nordicRadarChart"></canvas></div></div>
+<div class="card"><h2>Enterprise Architecture Evolution</h2><div class="chart-container"><canvas id="eaChart"></canvas></div></div>
+<div class="card full-width"><h2>Strategic Positioning for Knowit</h2><div class="quadrant-grid"><div class="quadrant"><h4>🎯 High Growth / Knowit Strengths</h4><ul><li>AI Strategy & Governance Advisory</li><li>Cloud + Sustainability (AWS partnership)</li><li>Cybersecurity Consulting</li><li>Data-Driven Customer Experience</li></ul></div><div class="quadrant"><h4>🚀 High Growth / Build Capability</h4><ul><li>Agentic AI Implementation</li><li>Fractional CxO Services</li><li>AI Fluency Leadership Programs</li><li>EU AI Act Compliance Advisory</li></ul></div><div class="quadrant"><h4>🔄 Stable / Defend Position</h4><ul><li>Enterprise Architecture Consulting</li><li>Digital Transformation Delivery</li><li>Integration Architecture</li><li>IoT and Connectivity Solutions</li></ul></div><div class="quadrant"><h4>⚠️ Under Pressure / Reposition</h4><ul><li>Generic IT Staff Augmentation</li><li>Traditional System Development</li><li>Time-and-Materials Engagements</li><li>Generalist Management Consulting</li></ul></div></div><div class="positioning-box" style="margin-top:20px"><h3>Recommended Offer Positioning</h3><ul><li><strong>AI Strategy & Governance:</strong> Help Nordic enterprises define AI autonomy boundaries, comply with EU AI Act, and implement agentic AI responsibly</li><li><strong>EA as Decision Services:</strong> Move beyond static modeling toward dependency risk analysis, capability gap assessment, and AI governance frameworks</li><li><strong>Digital Leadership Programs:</strong> Develop AI fluency programs for C-suite and senior management</li><li><strong>Cloud + Sustainability:</strong> Leverage the AWS partnership for integrated cloud transformation with sustainability credentials</li><li><strong>Outcome-Based Delivery:</strong> Shift from T&M to outcome-based pricing for repeatable AI and DX engagements</li></ul></div></div>
+<div class="card full-width"><h2>Sources</h2><ul class="source-list"><li><a href="https://fortune.com/2026/03/17/ai-death-of-management-consulting-not-happening-capgemini-fernando-alvarez-says/">Is AI the end of consulting? Not likely (Fortune, Mar 17)</a></li><li><a href="https://www.consultancy.uk/news/42532/global-technology-consulting-market-to-surpass-400-billion-in-2026">Global tech consulting market surpasses $400B (Consultancy.uk)</a></li><li><a href="https://www.consultancy.uk/news/42577/traditional-management-may-slow-growth-in-2026">Traditional management may slow 2026 growth (Consultancy.uk)</a></li><li><a href="https://www.consultancy.eu/news/10641/large-listed-nordic-consultancies-downsizing-to-maintain-profitability">Nordic consultancies downsizing (Consultancy.eu)</a></li><li><a href="https://pitchbook.com/news/articles/nordic-vc-exits-rebound-as-buyouts-and-ai-m-a-reopen-liquidity">Nordic VC exits rebound (PitchBook)</a></li><li><a href="https://sebgroup.com/press/press-releases/2026/nordic-outlook-growth-and-markets-withstand-challenges">Nordic Outlook 2026 (SEB)</a></li><li><a href="https://www.acldigital.com/blogs/top-6-enterprise-architecture-trends-shaping-2026-and-beyond">Top 6 EA Trends 2026 (ACL Digital)</a></li><li><a href="https://meta4ce.be/insights/trends-in-enterprise-architecture-for-2026-and-beyond/">EA 2026-2028 trends (Meta4ce)</a></li><li><a href="https://frends.com/insights/integration-is-the-new-enterprise-architecture-what-cios-must-get-right-in-2026">Integration is the new EA (Frends)</a></li><li><a href="https://www.ddi.com/blog/leadership-trends-2026">Leadership Trends 2026 (DDI)</a></li><li><a href="https://www.odgers.com/en-us/insights/2026-leadership-trends-in-the-technology-sector/">2026 Leadership in Tech (Odgers)</a></li><li><a href="https://www.knowit.eu/news-press/knowit-and-amazon-web-services-aws-establish-nordic-strategic-collaboration/">Knowit-AWS Collaboration (Knowit)</a></li><li><a href="https://hbr.org/2025/09/ai-is-changing-the-structure-of-consulting-firms">AI Changing Consulting Structure (HBR)</a></li><li><a href="https://futureofconsulting.ai/ai-leadership/2026-consultings-ai-revolution-update/">2026 Consulting AI Revolution</a></li><li><a href="https://poetsandquants.com/2026/02/26/new-consulting-firm-ranking-bain-tops-mbb-rivals/">Bain Tops 2026 Rankings (Poets&Quants)</a></li></ul></div>
+</div></div>
+<footer><div class="container">Consulting Industry Evolution — Daily Brief | Prepared for Torbjörn Lindgren, Knowit | March 20, 2026<br>Full knowledge base: <code>consulting-evolution-knowledge-base.md</code> | Sources log: <code>consulting-sources-log.md</code></div></footer>
+<script>
+new Chart(document.getElementById('aiAdoptionChart'),{type:'bar',data:{labels:['Firms Using AI (Global)','Firms Using AI (UK)','GenAI for Predictive','AI Drives Revenue','Decreased Headcount'],datasets:[{label:'% of Consulting Firms',data:[62,77,59,66,4],backgroundColor:['#2b6cb0','#3182ce','#4299e1','#63b3ed','#e53e3e'],borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},title:{display:true,text:'% of Consulting Firms',font:{size:12}}},scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+'%'}}}}});
+new Chart(document.getElementById('marketGrowthChart'),{type:'line',data:{labels:['2023','2024','2025','2026E','2027E'],datasets:[{label:'Global ($T)',data:[0.95,1.00,1.06,1.11,1.17],borderColor:'#2b6cb0',backgroundColor:'rgba(43,108,176,0.1)',fill:true,tension:0.3},{label:'Nordic (€B)',data:[2.5,2.65,2.73,2.82,2.93],borderColor:'#ed8936',backgroundColor:'rgba(237,137,54,0.1)',fill:true,tension:0.3,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'Market Size Trajectories',font:{size:12}}},scales:{y:{title:{display:true,text:'Global ($T)'},min:0.8,max:1.3},y1:{position:'right',title:{display:true,text:'Nordic (€B)'},min:2.0,max:3.5,grid:{drawOnChartArea:false}}}}});
+new Chart(document.getElementById('nordicRadarChart'),{type:'radar',data:{labels:['AI Strategy','Cybersecurity','ESG Advisory','Cloud/DX','EA/Architecture','IT Staff Aug','Change Mgmt','Leadership Dev'],datasets:[{label:'Market Demand (2026)',data:[90,85,80,85,75,40,82,70],borderColor:'#2b6cb0',backgroundColor:'rgba(43,108,176,0.15)',pointBackgroundColor:'#2b6cb0'},{label:'Knowit Positioning',data:[70,75,65,85,70,80,55,50],borderColor:'#ed8936',backgroundColor:'rgba(237,137,54,0.15)',pointBackgroundColor:'#ed8936'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'Demand vs. Positioning (Indicative)',font:{size:12}}},scales:{r:{min:0,max:100,ticks:{stepSize:20}}}}});
+new Chart(document.getElementById('eaChart'),{type:'doughnut',data:{labels:['AI-First Architecture','Agentic AI Governance','Integration as Strategy','Decision Services','Traditional Modeling','Federated Architecture'],datasets:[{data:[25,20,20,15,8,12],backgroundColor:['#2b6cb0','#3182ce','#4299e1','#63b3ed','#a0aec0','#ed8936'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:'EA Focus Areas 2026 (Estimated Priority Share)',font:{size:12}},legend:{position:'right',labels:{font:{size:11}}}}}});
+</script>
+</body>
+</html>
